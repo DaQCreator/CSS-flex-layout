@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <title>Flexbox Layout</title>
+ <style>
+  * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 30px;
+
+  }
+
+  nav {
+    background-color: #000;
+    align-self: stretch;
+    padding: 15px 0;   
+  }
+
+  header {
+    width: 100%;
+    background-color: royalblue;
+    max-width: 1200px;
+    /* flex basic w tym przypadku to wysokość */
+    flex-basis: 25vh;
+  }
+ 
+  section {
+    display: flex;
+    flex-grow: 1;
+    background-color: brown;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  main {
+    flex-grow: 1;
+    background-color: grey;
+  }
+
+  aside {
+    flex-basis: 30%;
+    min-width: 280px;
+    background-color: cadetblue;
+  }
+
+  footer {
+    background-color: black;
+    /* align-self: stretch; */
+    width: 100%;
+    flex-basis: 15vh;
+  }
+
+  @media (max-width: 1024px) {
+    header {
+        order: -1;
+    }
+    /* 1 sposób */
+    /* section {
+        flex-wrap: wrap;
+    }
+
+    aside {
+    flex-basis: 100%;
+    } */
+
+    /* 2gi sposób */
+    section {
+        flex-direction: column;
+
+    }
+    main {
+        flex-grow: 2;
+    }
+    aside {
+        flex-grow: 1;
+    }
+    
+
+  }
+
+  
+
+ </style>
+</head>
+
+<body>
+    <nav>Nawigacja</nav>
+    <header>Header</header>
+    <section>
+        <main>Główna treść</main>
+        <aside>Kolumna</aside>
+    </section>
+    <footer>Stopka</footer>
+</body>
+
+</html>
